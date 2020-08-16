@@ -91,8 +91,8 @@ def findChessboardCorners(img_arr_gray, noise_threshold = 1000):
     hough_gy = nonmax_suppress_1d(hough_gy) / hough_gy.max()
 
     # Arbitrary threshold of 20% of max
-    hough_gx[hough_gx<0.2] = 0
-    hough_gy[hough_gy<0.2] = 0
+    hough_gx[hough_gx<0.1] = 0
+    hough_gy[hough_gy<0.1] = 0
 
     # Now we have a set of potential vertical and horizontal lines that
     # may contain some noisy readings, try different subsets of them with
@@ -430,7 +430,7 @@ def main(url):
 if __name__ == '__main__':
   np.set_printoptions(suppress=True, precision=2)
   parser = argparse.ArgumentParser(description='Find orthorectified chessboard corners in image')
-  parser.add_argument('urls', default=['https://i.redd.it/1uw3h772r0fy.png'],
+  parser.add_argument('urls', default=['https://cdn.discordapp.com/attachments/182734204579086336/744431891662241872/6d16d392-b7b0-4fd4-ab4a-dd42bbab1b2a.png'],
     metavar='urls', type=str,  nargs='*', help='Input image urls')
   # main('http://www.chessanytime.com/img/jeudirect/simplechess.png')
   # main('https://i.imgur.com/JpzfV3y.jpg')

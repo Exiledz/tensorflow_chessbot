@@ -1,3 +1,5 @@
+Exiledz' fork of https://github.com/Elucidation/tensorflow_chessbot.
+
 TensorFlow Chessbot - /u/ChessFenBot [◕ _ ◕]<sup>\* *I make FENs*</sup>
 ---
 ## Command Line Interface (CLI)

@@ -58,7 +58,6 @@ def findChessboardCorners(img_arr_gray, noise_threshold = 1000):
   # noise_threshold: Ratio of standard deviation of hough values along an axis
   # versus the number of pixels, manually measured  bad trigger images
   # at < 5,000 and good  chessboards values at > 10,000
-  PIL.Image.fromarray(img_arr_gray).convert('RGB').save('before.png')
   img_arr_gray = trimBoard(img_arr_gray)
 
   trimCount = 0
@@ -90,7 +89,7 @@ def findChessboardCorners(img_arr_gray, noise_threshold = 1000):
     hough_gx = nonmax_suppress_1d(hough_gx) / hough_gx.max()
     hough_gy = nonmax_suppress_1d(hough_gy) / hough_gy.max()
 
-    # Arbitrary threshold of 20% of max
+    # Arbitrary threshold of 10% of max
     hough_gx[hough_gx<0.1] = 0
     hough_gy[hough_gy<0.1] = 0
 
@@ -222,8 +221,7 @@ def findChessboardCorners(img_arr_gray, noise_threshold = 1000):
         if best_score is None or score > best_score:
           best_score = score
           final_corners = sub_corners + [corners[0], corners[1], corners[0], corners[1]]
-          
-    PIL.Image.fromarray(img_arr_gray).convert('RGB').save('after.png')
+
     return final_corners
   return None
 

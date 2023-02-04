@@ -122,7 +122,7 @@ def lengthenFEN(fen):
 
 def unflipFEN(fen):
     if len(fen) < 71:
-        fen = lengthenFEN(FEN)
+        fen = lengthenFEN(fen)
     return '/'.join([ r[::-1] for r in fen.split('/') ][::-1])
 
 
